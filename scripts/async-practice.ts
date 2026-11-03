@@ -26,11 +26,11 @@ function fetchLeadsMock(shouldFail = false): Promise<Lead[]> {
 }
 
 // Gọi API và xử lý kết quả
-async function loadLeads(): Promise<void> {
+async function loadLeads(shouldFail = false): Promise<void> {
   console.log('Đang tải dữ liệu...')
 
   try {
-    const leads = await fetchLeadsMock()
+    const leads = await fetchLeadsMock(shouldFail)
 
     console.log('API thành công')
     console.log('Tổng Lead:', leads.length)
@@ -47,4 +47,4 @@ async function loadLeads(): Promise<void> {
   }
 }
 
-const leads = await fetchLeadsMock(true)
+void loadLeads(true)
